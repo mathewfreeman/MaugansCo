@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
-    <title>maugans co. | Secure Preview</title>
+    <title>maugans co. | private preview</title>
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2304d9c4'><circle cx='5' cy='5' r='2'/><circle cx='12' cy='5' r='2'/><circle cx='19' cy='5' r='2'/><circle cx='5' cy='12' r='2'/><circle cx='12' cy='12' r='2'/><circle cx='19' cy='12' r='2'/><circle cx='5' cy='19' r='2'/><circle cx='12' cy='19' r='2'/><circle cx='19' cy='19' r='2'/></svg>">
+
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,31 +27,31 @@
 <body class="bg-[#fafafa] text-slate-800">
 
     <div id="gate" class="min-h-screen flex flex-col justify-center items-center p-6 hidden-content">
-        <main class="max-w-md w-full bg-white px-8 py-12 border border-slate-100 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] text-center fade-in">
-            <h1 class="text-2xl font-medium tracking-tight text-slate-900 mb-1">maugans co.</h1>
-            <p class="text-xs font-medium text-[#04d9c4] uppercase tracking-[0.2em] mb-8">Development Preview</p>
+        <main class="max-w-lg w-full bg-white px-8 py-12 border border-slate-100 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] text-center fade-in">
+            <h1 class="text-3xl font-medium tracking-tight text-slate-900 mb-1">maugans co.</h1>
+            <p class="text-xs font-medium text-[#04d9c4] uppercase tracking-[0.2em] mb-8">private preview</p>
             
             <div class="w-10 h-[1px] bg-slate-200 mx-auto mb-8"></div>
             
-            <input type="password" id="pass-field" placeholder="Enter Password" 
-                   class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-center focus:outline-none focus:border-[#04d9c4] transition-colors mb-4">
+            <input type="password" id="pass-field" placeholder="access key" 
+                   class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-center focus:outline-none focus:border-[#04d9c4] transition-colors mb-4 text-base">
             
             <button onclick="unlock()" 
-                    class="w-full py-3 bg-slate-900 text-white text-sm font-medium rounded-lg hover:bg-slate-800 transition-all">
+                    class="w-full py-3 bg-slate-900 text-white text-base font-medium rounded-lg hover:bg-slate-800 transition-all">
                 View Project
             </button>
-            <p id="error" class="text-red-500 text-xs mt-4 opacity-0 transition-opacity">Access Denied.</p>
+            <p id="error" class="text-red-500 text-xs mt-4 opacity-0 transition-opacity">Access Denied</p>
         </main>
         <footer class="mt-8 text-slate-400 text-xs">&copy; 2026 Maugans Co.</footer>
     </div>
 
     <div id="content" class="hidden-content">
-        <!-- INSERT COMPLETE WEBSITE CODE HERE -->
+        <!-- complete website code -->
     </div>
 
     <script>
         const ACCESS_KEY = "zb10"; 
-        const STORAGE_KEY = "maugans_preview_auth_date";
+        const STORAGE_KEY = "maugans_golf_auth_date";
 
         function getNYDate() {
             try {

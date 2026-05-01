@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>maugans co. | private preview</title>
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2304d9c4'><circle cx='5' cy='5' r='2'/><circle cx='12' cy='5' r='2'/><circle cx='19' cy='5' r='2'/><circle cx='5' cy='12' r='2'/><circle cx='12' cy='12' r='2'/><circle cx='19' cy='12' r='2'/><circle cx='5' cy='19' r='2'/><circle cx='12' cy='19' r='2'/><circle cx='19' cy='19' r='2'/></svg>">
+
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'IBM Plex Sans', sans-serif; }
+        .hidden-content { display: none !important; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in { animation: fadeIn 0.6s ease-out forwards; }
+    </style>
+</head>
+<body class="bg-[#fafafa] text-slate-800">
+
+    <div id="gate" class="min-h-screen flex flex-col justify-center items-center p-6 hidden-content">
+        <main class="max-w-lg w-full bg-white px-8 py-12 border border-slate-100 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] text-center fade-in">
+            <h1 class="text-3xl font-medium tracking-tight text-slate-900 mb-1">maugans co.</h1>
+            <p class="text-xs font-medium text-[#04d9c4] uppercase tracking-[0.2em] mb-8">private preview</p>
+            
+            <div class="w-10 h-[1px] bg-slate-200 mx-auto mb-8"></div>
+            
+            <input type="password" id="pass-field" placeholder="access key" 
+                   class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-center focus:outline-none focus:border-[#04d9c4] transition-colors mb-4 text-base">
+            
+            <button onclick="unlock()" 
+                    class="w-full py-3 bg-slate-900 text-white text-base font-medium rounded-lg hover:bg-slate-800 transition-all">
+                View Project
+            </button>
+            <p id="error" class="text-red-500 text-xs mt-4 opacity-0 transition-opacity">Access Denied</p>
+        </main>
+        <footer class="mt-8 text-slate-400 text-xs">&copy; 2026 Maugans Co.</footer>
+    </div>
+
+    <div id="content" class="hidden-content">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hadley Huffman Foundation</title>
+    <meta name="description" content="Transforming Healthcare Through Equitable Action. Access to equitable and inclusive healthcare is a fundamental human right.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sage: {
+                            50: '#F7FAF8', // Whispery light background
+                            100: '#EBF2ED',
+                            200: '#D6E3D8', // Borders and subtle divisions
+                            300: '#B9CEBE',
+                            400: '#99B6A1',
+                            500: '#7D9D86', // Primary whispery green
+                            600: '#618069',
+                            700: '#4D6654',
+                            800: '#3D5243', // Text headings
+                            900: '#304034', // Deepest contrast
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        serif: ['Lora', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <style>
+        .fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        
+        /* Structured grid borders */
+        .grid-borders > div {
+            border-bottom: 1px solid theme('colors.sage.200');
+        }
+        @media (min-width: 768px) {
+            .grid-borders > div:nth-child(odd) {
+                border-right: 1px solid theme('colors.sage.200');
+            }
+            .grid-borders > div:nth-last-child(-n+2) {
+                border-bottom: none;
+            }
+        }
+
+        /* Sharp inputs */
+        .input-sharp {
+            border: 1px solid theme('colors.sage.200');
+            background: transparent;
+            border-radius: 0;
+            padding: 0.875rem 1rem;
+            transition: border-color 0.3s ease;
+        }
+        .input-sharp:focus {
+            outline: none;
+            border-color: theme('colors.sage.500');
+            box-shadow: none;
+        }
+    </style>
+</head>
+<body class="font-sans text-sage-800 bg-sage-50 antialiased selection:bg-sage-200 selection:text-sage-900">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-sage-50/95 backdrop-blur-sm border-b border-sage-200 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="font-serif text-2xl font-medium text-[#648460] tracking-tight flex flex-col items-center leading-none">
+                        <span>Hadley Huffman</span>
+                        <span class="text-[0.65rem] font-sans tracking-[0.25em] uppercase text-[#A67448] mt-1.5 ml-1">Foundation</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-sage-600 hover:text-sage-900 transition-colors text-sm uppercase tracking-wide">Story</a>
+                    <a href="#mission" class="text-sage-600 hover:text-sage-900 transition-colors text-sm uppercase tracking-wide">Mission</a>
+                    <a href="#impact" class="text-sage-600 hover:text-sage-900 transition-colors text-sm uppercase tracking-wide">Impact</a>
+                    <a href="#resources" class="text-sage-600 hover:text-sage-900 transition-colors text-sm uppercase tracking-wide">Research</a>
+                    <a href="#events" class="text-sage-600 hover:text-sage-900 transition-colors text-sm uppercase tracking-wide">Events</a>
+                    <a href="#donate" class="bg-sage-800 hover:bg-sage-900 text-sage-50 px-6 py-2.5 text-sm uppercase tracking-wide transition-colors">Donate</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-sage-800 hover:text-sage-600 focus:outline-none p-2">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-sage-50 border-t border-sage-200 absolute w-full">
+            <div class="px-6 py-6 space-y-4">
+                <a href="#about" class="block text-sm uppercase tracking-wide text-sage-700 hover:text-sage-900">Story</a>
+                <a href="#mission" class="block text-sm uppercase tracking-wide text-sage-700 hover:text-sage-900">Mission</a>
+                <a href="#impact" class="block text-sm uppercase tracking-wide text-sage-700 hover:text-sage-900">Impact</a>
+                <a href="#resources" class="block text-sm uppercase tracking-wide text-sage-700 hover:text-sage-900">Research</a>
+                <a href="#events" class="block text-sm uppercase tracking-wide text-sage-700 hover:text-sage-900">Events</a>
+                <a href="#donate" class="block text-sm uppercase tracking-wide text-sage-900 font-medium">Donate</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-16 lg:pt-40 lg:pb-32 border-b border-sage-200">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex flex-col items-center text-center">
+                
+                <!-- Accessible Hidden H1 -->
+                <h1 class="sr-only">Healthcare is a human right. Transforming Healthcare Through Equitable Action.</h1>
+                
+                <div class="fade-up w-full flex flex-col items-center">
+                    <!-- Custom Typographic Graphic -->
+                    <div class="w-full max-w-5xl mb-12 lg:mb-16">
+                        <img src="images/human.png" alt="Healthcare is a human right." class="w-full h-auto object-contain" />
+                    </div>
+                    
+                    <div class="max-w-3xl">
+                        <span class="text-sage-500 text-xs font-sans uppercase tracking-[0.15em] mb-6 block">Transforming Healthcare Through Equitable Action</span>
+                        <p class="text-xl lg:text-2xl text-sage-800 font-serif leading-relaxed mb-10">
+                            Access to equitable and inclusive healthcare is a fundamental human right. We are dedicated to eliminating systemic discrimination in the medical community through advocacy, education, and community engagement.
+                        </p>
+                        <div class="flex flex-wrap justify-center gap-4">
+                            <a href="#mission" class="bg-sage-800 hover:bg-sage-900 text-sage-50 px-8 py-4 text-sm uppercase tracking-wider font-medium transition-colors">
+                                Our Mission
+                            </a>
+                            <a href="#donate" class="bg-transparent hover:bg-sage-100 text-sage-800 border border-sage-800 px-8 py-4 text-sm uppercase tracking-wider font-medium transition-colors">
+                                Get Involved
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- About Hadley -->
+    <section id="about" class="py-24 bg-white border-b border-sage-200">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-16 items-start">
+                <div class="lg:col-span-5 fade-up">
+                    <div class="aspect-[3/4] relative">
+                        <img src="images/hadley portrait.jpg" alt="Portrait of Hadley Huffman" class="object-cover w-full h-full grayscale-[30%]" />
+                        <div class="absolute bottom-0 left-0 bg-white p-6 border-t border-r border-sage-200">
+                            <h3 class="font-serif text-xl text-sage-900">Hadley Huffman</h3>
+                            <p class="text-sage-500 text-xs uppercase tracking-widest mt-1">1999 — 2021</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-7 fade-up delay-100 pt-8 lg:pt-0">
+                    <span class="text-sage-500 text-xs font-sans uppercase tracking-[0.15em] mb-4 block">Her Legacy</span>
+                    <h2 class="text-4xl lg:text-5xl font-serif text-sage-900 mb-8">Hadley's Story</h2>
+                    <div class="space-y-6 text-sage-700 text-lg leading-relaxed font-light">
+                        <p>
+                            Hadley Huffman was born in Ann Arbor, Michigan, and grew up attending Pioneer High School before continuing her education at the University of Arizona and later Wayne State University.
+                        </p>
+                        <p>
+                            From a young age, Hadley demonstrated a deep commitment to equity, using her voice and platform to advocate for marginalized communities. During her time at Wayne State, she participated in a medical volunteer program in Portugal that fundamentally shaped her perspective on global healthcare disparities.
+                        </p>
+                        <p>
+                            This experience, coupled with her passion for equity, led her to establish <strong>Students Against Medical Racism</strong>, an initiative set in the belief that accessible, equitable, and affordable healthcare is a fundamental human right, not a privilege.
+                        </p>
+                        <p>
+                            Hadley aspired to become a doctor with the goal of joining Doctors Without Borders. Although she passed away in 2021, her vision lives on. This foundation was created by her family, friends, and the community she inspired to continue her mission of addressing systemic barriers and advocating for meaningful change.
+                        </p>
+                    </div>
+
+                    <!-- Additional Images Grid -->
+                    <div class="mt-12 grid grid-cols-2 gap-6">
+                        <div class="h-64 relative border border-sage-200 group">
+                            <!-- Placeholder: Volunteering/Portugal -->
+                            <img src="images/hadley medical.jpg" alt="Volunteering abroad" class="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-500" />
+                        </div>
+                        <div class="grid grid-rows-2 gap-6">
+                            <div class="relative border border-sage-200 group h-[calc(8rem-0.75rem)]">
+                                <!-- Placeholder: Early Aspirations / Childhood Doctor Photo -->
+                                <img src="images/hadley childhood.jpg" alt="Early aspirations" class="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-500 object-top" />
+                            </div>
+                            <div class="relative border border-sage-200 group h-[calc(8rem-0.75rem)]">
+                                <!-- Placeholder: Community/Advocacy -->
+                                <img src="images/hadley travel.jpg" alt="Advocacy" class="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-500" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Values -->
+    <section id="mission" class="py-24 bg-sage-50 border-b border-sage-200">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="mb-16 fade-up">
+                <span class="text-sage-500 text-xs font-sans uppercase tracking-[0.15em] mb-4 block">Core Directives</span>
+                <h2 class="text-4xl lg:text-5xl font-serif text-sage-900 mb-6 max-w-2xl">
+                    Advancing equality in healthcare by confronting discrimination.
+                </h2>
+                <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 mt-8">
+                    <div>
+                        <h3 class="font-medium text-sage-900 uppercase tracking-wide text-sm mb-3">Advocacy</h3>
+                        <p class="text-sage-700 font-light leading-relaxed text-sm lg:text-base">
+                            We advocate for a world where healthcare is a right, not a privilege. By lending our voice to support policies, initiatives, and organizations that fight systemic barriers to healthcare, we promote equitable access for underserved communities.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="font-medium text-sage-900 uppercase tracking-wide text-sm mb-3">Community Engagement</h3>
+                        <p class="text-sage-700 font-light leading-relaxed text-sm lg:text-base">
+                            We believe lasting change begins in the community. By listening, partnering, and learning from those most affected, we help amplify local voices and support solutions that truly meet the needs of our mission.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 grid-borders border border-sage-200 bg-white fade-up delay-100">
+                <!-- Value 1 -->
+                <div class="p-10 lg:p-12 hover:bg-sage-50 transition-colors">
+                    <div class="text-sage-300 font-serif text-4xl mb-6">I.</div>
+                    <h3 class="text-lg uppercase tracking-wide font-medium text-sage-900 mb-3">Equity</h3>
+                    <p class="text-sage-700 leading-relaxed font-light">Everyone deserves quality healthcare. We work to ensure access is fair, regardless of race, class, or background.</p>
+                </div>
+                <!-- Value 2 -->
+                <div class="p-10 lg:p-12 hover:bg-sage-50 transition-colors">
+                    <div class="text-sage-300 font-serif text-4xl mb-6">II.</div>
+                    <h3 class="text-lg uppercase tracking-wide font-medium text-sage-900 mb-3">Empowerment</h3>
+                    <p class="text-sage-700 leading-relaxed font-light">We strengthen organizations driving change, giving them the tools and support to make a real, lasting impact.</p>
+                </div>
+                <!-- Value 3 -->
+                <div class="p-10 lg:p-12 hover:bg-sage-50 transition-colors">
+                    <div class="text-sage-300 font-serif text-4xl mb-6">III.</div>
+                    <h3 class="text-lg uppercase tracking-wide font-medium text-sage-900 mb-3">Education</h3>
+                    <p class="text-sage-700 leading-relaxed font-light">We raise awareness and provide resources to inform the public about systemic inequities within the healthcare field.</p>
+                </div>
+                <!-- Value 4 -->
+                <div class="p-10 lg:p-12 hover:bg-sage-50 transition-colors">
+                    <div class="text-sage-300 font-serif text-4xl mb-6">IV.</div>
+                    <h3 class="text-lg uppercase tracking-wide font-medium text-sage-900 mb-3">Stewardship</h3>
+                    <p class="text-sage-700 leading-relaxed font-light">We responsibly manage our resources to maximize positive change, ensuring every donation drives meaningful progress.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Organizations We Support -->
+    <section id="impact" class="py-24 bg-white border-b border-sage-200">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 fade-up">
+                <div class="max-w-2xl">
+                    <span class="text-sage-500 text-xs font-sans uppercase tracking-[0.15em] mb-4 block">Our Impact</span>
+                    <h2 class="text-4xl lg:text-5xl font-serif text-sage-900 mb-6">Organizations We Support</h2>
+                    <p class="text-lg text-sage-700 font-light">
+                        Through our donations, we support organizations working to expand access and deliver vital medical care to underserved communities. Every contribution drives programs that break down barriers.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Org 1 -->
+                <div class="group border border-sage-200 fade-up">
+                    <div class="h-56 overflow-hidden border-b border-sage-200">
+                        <img src="images/caughtup.png" alt="Mentorship" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-serif text-sage-900 mb-2">Caught Up Detroit</h3>
+                        <p class="text-sage-500 text-xs uppercase tracking-widest mb-4">19950 Mack Ave. Detroit, MI</p>
+                        <p class="text-sage-700 text-sm mb-6 leading-relaxed font-light">Inspires and empowers young men to become productive members of society, serving over 300 individuals from low-income families in Detroit.</p>
+                        <a href="https://www.caughtup.org/" target="_blank" class="inline-flex items-center text-xs uppercase tracking-widest font-medium text-sage-800 border-b border-sage-800 pb-1 hover:text-sage-500 hover:border-sage-500 transition-colors">
+                            Visit Website <i data-lucide="arrow-up-right" class="w-3 h-3 ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Org 2 -->
+                <div class="group border border-sage-200 fade-up delay-100">
+                    <div class="h-56 overflow-hidden border-b border-sage-200">
+                        <img src="images/alternatives.png" alt="Women empowerment" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-serif text-sage-900 mb-2">Alternatives For Girls</h3>
+                        <p class="text-sage-500 text-xs uppercase tracking-widest mb-4">903 W Grand Blvd, Detroit, MI</p>
+                        <p class="text-sage-700 text-sm mb-6 leading-relaxed font-light">Provides shelter, housing support, workforce development, human trafficking assistance, and crisis intervention for young women facing homelessness.</p>
+                        <a href="https://alternativesforgirls.org/" target="_blank" class="inline-flex items-center text-xs uppercase tracking-widest font-medium text-sage-800 border-b border-sage-800 pb-1 hover:text-sage-500 hover:border-sage-500 transition-colors">
+                            Visit Website <i data-lucide="arrow-up-right" class="w-3 h-3 ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Org 3 -->
+                <div class="group border border-sage-200 fade-up delay-200">
+                    <div class="h-56 overflow-hidden border-b border-sage-200">
+                        <img src="images/saydetroit.png" alt="Health Clinic" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-serif text-sage-900 mb-2">SAY Detroit</h3>
+                        <p class="text-sage-500 text-xs uppercase tracking-widest mb-4">1355 Oakman Blvd, Detroit, MI</p>
+                        <p class="text-sage-700 text-sm mb-6 leading-relaxed font-light">A community health clinic providing high-quality examinations, maintenance, and preventive healthcare for adults, regardless of their ability to pay.</p>
+                        <a href="https://saydetroit.org/" target="_blank" class="inline-flex items-center text-xs uppercase tracking-widest font-medium text-sage-800 border-b border-sage-800 pb-1 hover:text-sage-500 hover:border-sage-500 transition-colors">
+                            Visit Website <i data-lucide="arrow-up-right" class="w-3 h-3 ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Educational Resources -->
+    <section id="resources" class="py-24 bg-sage-800 text-sage-50 border-b border-sage-900">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-16">
+                <!-- Header Column -->
+                <div class="lg:col-span-4 fade-up">
+                    <span class="text-sage-400 text-xs font-sans uppercase tracking-[0.15em] mb-4 block">Education & Advocacy</span>
+                    <h2 class="text-4xl lg:text-5xl font-serif text-white mb-6">Research for Equity in Care</h2>
+                    <p class="text-sage-200 font-light leading-relaxed mb-8">
+                        We curate and advance research on racial bias in medicine and unequal access in underprivileged communities. We aim to amplify the work of organizations and researchers to educate the public on the lasting impacts of discrimination.
+                    </p>
+                </div>
+
+                <!-- Articles Column -->
+                <div class="lg:col-span-8 fade-up delay-100">
+                    
+                    <!-- Chart Highlight Block -->
+                    <div class="mb-12 border border-sage-700 bg-sage-900/50 p-6 sm:p-8">
+                        <h4 class="text-xl sm:text-2xl font-serif text-white mb-6">Racial and ethnic discrimination in health care was reported to be highest in the United States.</h4>
+                        
+                        <div class="w-full bg-white flex items-center justify-center border border-sage-700">
+                            <img src="images/discrimination.jpg" alt="Chart showing highest reported discrimination in the US vs UK and Canada" class="w-full h-auto object-contain">
+                        </div>
+                        
+                        <div class="mt-6 flex flex-col items-start">
+                            <a href="https://doi.org/10.26099/vnmm-er89" target="_blank" class="inline-flex items-center text-[0.7rem] uppercase tracking-widest font-medium text-sage-400 hover:text-white transition-colors mb-4">
+                                Read the full article here <i data-lucide="arrow-up-right" class="w-3 h-3 ml-1.5"></i>
+                            </a>
+                            <cite class="block text-xs text-sage-400 border-t border-sage-700 pt-4 not-italic font-light leading-relaxed w-full">
+                                * Statistically significant differences compared to US at p&lt;.05 level.<br><br>
+                                Note: Discrimination in the health system was defined as physicians who said the health care system "very often" or "often" treats people unfairly based on race or ethnicity or responded "yes" when asked if their patients have ever told them that because of their racial or ethnic background they felt they were treated unfairly or their health concerns were not taken as seriously by a health care professional.<br><br>
+                                Data: 2022 Commonwealth Fund International Health Policy Survey.<br><br>
+                                Source: Evan D. Gumas, Morenike Ayo-Vaughan, and Munira Z. Gunja, "Health Care Workers in Canada, the U.K., and the U.S. Report Racial and Ethnic Discrimination in the Health Care System," <em>To the Point</em> (blog), Commonwealth Fund, Jan. 27, 2025.
+                            </cite>
+                        </div>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-x-8 gap-y-12">
+                        <!-- Item -->
+                        <div class="flex flex-col h-full">
+                            <h4 class="text-xl font-serif text-white mb-3">Racial Disparities in Outcomes</h4>
+                            <p class="text-sage-300 text-sm font-light leading-relaxed mb-4 flex-grow">
+                                Globally, disparities are striking. In the US, Black women are three times more likely to die from pregnancy-related complications than White women, and minority infants face mortality rates more than twice as high.
+                            </p>
+                            <div class="border-l-2 border-sage-500 pl-4 py-1 mb-4">
+                                <span class="block text-[0.65rem] uppercase tracking-widest text-sage-400 mb-1">What Can Be Done</span>
+                                <p class="text-sage-300 text-xs font-light">Implicit bias training, curricula revisions, standardized clinical processes, and diverse healthcare leadership.</p>
+                            </div>
+                            <cite class="block text-[0.6rem] text-sage-500 border-t border-sage-700 pt-3 not-italic mt-auto">
+                                Sorice, V. et al. The Perpetual Cycle of Racial Bias... J. Racial and Ethnic Health Disparities (2025). doi: 10.1007/s40615-025-02417-6
+                            </cite>
+                        </div>
+                        <!-- Item -->
+                        <div class="flex flex-col h-full">
+                            <h4 class="text-xl font-serif text-white mb-3">Gender Bias in Diagnosis</h4>
+                            <p class="text-sage-300 text-sm font-light leading-relaxed mb-4 flex-grow">
+                                Women are 50% more likely to be misdiagnosed with a heart attack. Misconceptions of cardiovascular disease as a 'men's disease' contribute to under-diagnosis and treatment worldwide.
+                            </p>
+                            <div class="border-l-2 border-sage-500 pl-4 py-1 mb-4">
+                                <span class="block text-[0.65rem] uppercase tracking-widest text-sage-400 mb-1">What Can Be Done</span>
+                                <p class="text-sage-300 text-xs font-light">Develop interventions with a comprehensive, long-term gender perspective to tackle clinical bias across the continuum.</p>
+                            </div>
+                            <cite class="block text-[0.6rem] text-sage-500 border-t border-sage-700 pt-3 not-italic mt-auto">
+                                Al Hamid A. et al. Gender Bias in Diagnosis... Cureus. 2024. doi: 10.7759/cureus.54264.<br>
+                                Alcalde-Rubio, L. et al. Gender disparities in clinical practice... Int J Equity Health (2020).
+                            </cite>
+                        </div>
+                        <!-- Item -->
+                        <div class="flex flex-col h-full">
+                            <h4 class="text-xl font-serif text-white mb-3">Frontline Observations</h4>
+                            <p class="text-sage-300 text-sm font-light leading-relaxed mb-4 flex-grow">
+                                Discrimination based on race, ethnicity, or language negatively impacts care quality. Workers on the front line of care delivery provide critical insights into the nature of this discrimination to help inform solutions.
+                            </p>
+                            <a href="https://www.commonwealthfund.org/publications/issue-briefs/2024/feb/revealing-disparities-health-care-workers-observations" target="_blank" class="inline-flex items-center text-[0.7rem] uppercase tracking-widest font-medium text-sage-400 hover:text-white transition-colors mb-4">
+                                Read the full article here <i data-lucide="arrow-up-right" class="w-3 h-3 ml-1.5"></i>
+                            </a>
+                            <cite class="block text-[0.6rem] text-sage-500 border-t border-sage-700 pt-3 not-italic mt-auto">
+                                Revealing Disparities: Health Care Workers' Observations of Discrimination Against Patients. Data: 2022 Commonwealth Fund International Health Policy Survey.
+                            </cite>
+                        </div>
+                        <!-- Item -->
+                        <div class="flex flex-col h-full">
+                            <h4 class="text-xl font-serif text-white mb-3">Medical Deserts</h4>
+                            <p class="text-sage-300 text-sm font-light leading-relaxed mb-4 flex-grow">
+                                Access to maternity care and pharmacies remains inequitable, severely impacting over two million women in rural areas and disproportionately affecting racial and ethnic minority neighborhoods.
+                            </p>
+                            <cite class="block text-[0.6rem] text-sage-500 border-t border-sage-700 pt-3 not-italic mt-auto">
+                                Fontenot, J., Brigance, C., et al. Navigating geographical disparities: access to obstetric hospitals in maternity care deserts... BMC Pregnancy Childbirth 24, 350 (2024).<br>
+                                Brantley, A., Mosha, D., et al. Pharmacy deserts and health inequities in St. Louis City... BMC Public Health 25, 4309 (2025).
+                            </cite>
+                        </div>
+                        <!-- Item -->
+                        <div class="flex flex-col h-full">
+                            <h4 class="text-xl font-serif text-white mb-3">The Perpetual Cycle of Bias</h4>
+                            <p class="text-sage-300 text-sm font-light leading-relaxed mb-4 flex-grow">
+                                Racial bias in healthcare education is deeply ingrained, creating systemic barriers that significantly affect the quality and accessibility of care provided to marginalized groups.
+                            </p>
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/40240747/" target="_blank" class="inline-flex items-center text-[0.7rem] uppercase tracking-widest font-medium text-sage-400 hover:text-white transition-colors mb-4">
+                                Read the full article here <i data-lucide="arrow-up-right" class="w-3 h-3 ml-1.5"></i>
+                            </a>
+                            <cite class="block text-[0.6rem] text-sage-500 border-t border-sage-700 pt-3 not-italic mt-auto">
+                                Sorice, V. et al. The Perpetual Cycle of Racial Bias in Healthcare and Healthcare Education: A Systematic Review. (2025).
+                            </cite>
+                        </div>
+                        <!-- Item -->
+                        <div class="flex flex-col h-full">
+                            <h4 class="text-xl font-serif text-white mb-3">Implicit Bias</h4>
+                            <p class="text-sage-300 text-sm font-light leading-relaxed mb-4 flex-grow">
+                                Associations outside conscious awareness lead to negative evaluations. Studies reveal this can directly affect treatment, such as variations in pain management and prescription dosing based solely on a patient's race.
+                            </p>
+                            <cite class="block text-[0.6rem] text-sage-500 border-t border-sage-700 pt-3 not-italic mt-auto">
+                                FitzGerald, C., Hurst, S. Implicit bias in healthcare professionals: a systematic review. BMC Med Ethics 18, 19 (2017). https://doi.org/10.1186/s12910-017-0179-8
+                            </cite>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12 pt-8 border-t border-sage-700">
+                        <h4 class="text-xl font-serif text-white mb-3">Historical Injustices in Medicine</h4>
+                        <p class="text-sage-300 text-sm font-light leading-relaxed mb-4">
+                            The New England Journal of Medicine commissioned an independent group of historians to examine historical inequities and injustices.
+                        </p>
+                        <a href="#" class="inline-flex items-center text-xs uppercase tracking-widest font-medium text-sage-400 hover:text-white transition-colors">
+                            Explore Findings <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="py-24 bg-sage-100 border-b border-sage-200">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="bg-white border border-sage-200 grid lg:grid-cols-2">
+                <!-- Image side -->
+                <div class="relative border-b lg:border-b-0 lg:border-r border-sage-200 p-8 lg:p-12 flex flex-col items-center justify-center bg-sage-100/30">
+                    <div class="absolute top-0 left-0 bg-sage-900 text-white p-4 z-10 shadow-sm">
+                        <span class="block text-[0.65rem] uppercase tracking-widest text-sage-300">Upcoming</span>
+                        <span class="block font-serif text-xl mt-0.5">Event</span>
+                    </div>
+                    
+                    <!-- Delicate Frame -->
+                    <div class="w-full border border-sage-300 p-3 bg-white shadow-sm mt-12 lg:mt-0">
+                        <!-- User Graphic Placeholder (replace src with actual image file) -->
+                        <img src="images/golf.jpg" alt="Zeke Berry Charity Golf Outing Logo" class="w-full h-auto object-contain bg-[#08203e]" />
+                    </div>
+                </div>
+                
+                <!-- Content side -->
+                <div class="p-10 lg:p-16 fade-up">
+                    <h2 class="text-4xl lg:text-5xl font-serif text-sage-900 mb-6 leading-tight">Zeke Berry Charity Golf Outing</h2>
+                    <p class="text-sage-700 font-light mb-8">
+                        Join us for an unforgettable day on the course supporting the Hadley Huffman Foundation. Enjoy great golf, good company, and the chance to make a meaningful impact. Every swing helps drive change.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6 mb-8 border-t border-b border-sage-200 py-6">
+                        <div>
+                            <span class="block text-xs uppercase tracking-widest text-sage-500 mb-1">Date & Location</span>
+                            <span class="block text-sage-900 font-medium">June 7th, 2026</span>
+                            <span class="block text-sage-600 text-sm mb-2">Lake Forest Golf Club<br>Ann Arbor, MI</span>
+                        </div>
+                        <div>
+                            <span class="block text-xs uppercase tracking-widest text-sage-500 mb-1">Schedule</span>
+                            <ul class="text-sage-600 text-sm space-y-1">
+                                <li><strong>7:15 AM:</strong> Check-In Opens</li>
+                                <li><strong>8:00 AM:</strong> Shotgun Start</li>
+                                <li><strong>10:00 AM</strong> Lunch on the Turn</li>
+                                <li><strong>2:00 PM</strong> Dinner and Remarks</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mb-10">
+                        <span class="block text-xs uppercase tracking-widest text-sage-500 mb-4">Pricing & Sponsorships</span>
+                        <ul class="text-sm text-sage-700 space-y-2 font-medium">
+                            <li class="flex justify-between border-b border-sage-100 pb-2"><span>Individual</span> <span>$150</span></li>
+                            <li class="flex justify-between border-b border-sage-100 pb-2"><span>Foursome</span> <span>$540</span></li>
+                            <li class="flex justify-between border-b border-sage-100 pb-2"><span>Hole Sponsor</span> <span>$500</span></li>
+                            <li class="flex justify-between border-b border-sage-100 pb-2"><span>Goal Line Sponsor</span> <span>$1,000</span></li>
+                            <li class="flex justify-between border-b border-sage-100 pb-2"><span>Lockdown Sponsor</span> <span>$3,000</span></li>
+                            <li class="flex justify-between border-b border-sage-100 pb-2"><span>Gift Sponsor</span> <span>$3,500</span></li>
+                        </ul>
+                    </div>
+                    
+                    <a href="https://maugansco.com/golf" target="_blank" class="inline-block w-full text-center bg-sage-800 hover:bg-sage-900 text-sage-50 px-8 py-4 text-sm uppercase tracking-wider font-medium transition-colors">
+                        Register Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donate & Contact -->
+    <section id="donate" class="bg-sage-50">
+        <div class="grid lg:grid-cols-2 border-b border-sage-200">
+            <!-- Donate Info -->
+            <div class="p-12 lg:p-24 bg-sage-200/30 border-b lg:border-b-0 lg:border-r border-sage-200 flex flex-col justify-center">
+                <span class="text-sage-600 text-xs font-sans uppercase tracking-[0.15em] mb-4 block">Take Action</span>
+                <h2 class="text-4xl lg:text-5xl font-serif text-sage-900 mb-6">Support Our Mission</h2>
+                <p class="text-sage-700 font-light leading-relaxed mb-10">
+                    Your support helps fund programs that combat medical discrimination, educate the public about healthcare inequalities, and empower organizations creating real, lasting change in underserved communities.
+                </p>
+                
+                <div class="bg-white p-8 border border-sage-200 mb-8">
+                    <h4 class="font-medium text-sage-900 mb-2 uppercase tracking-wide text-sm flex items-center">
+                        <i data-lucide="credit-card" class="w-4 h-4 mr-2"></i> Give Online via Square
+                    </h4>
+                    <p class="text-sm text-sage-600 font-light">
+                        At this time, the only available method for making donations is online via Square. Upon completion of a donation, a receipt will be automatically sent to your email.
+                    </p>
+                </div>
+                
+                <div>
+                    <a href="https://checkout.square.site/merchant/MLR9P7CF6MRPF/checkout/ZEWS3S4TVNFZI4OZVASPU7W3" target="blank" class="inline-flex items-center justify-center bg-sage-800 hover:bg-sage-900 text-sage-50 px-8 py-4 uppercase tracking-wider font-medium transition-colors text-sm">
+                        Donate Now
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Contact Form -->
+            <div class="p-12 lg:p-24 bg-white flex flex-col justify-center">
+                <h3 class="text-3xl font-serif text-sage-900 mb-4">Get in Touch</h3>
+                <p class="text-sage-600 font-light text-sm mb-10">
+                    If your organization is working to combat healthcare inequalities, or if you have questions, reach out to explore partnership opportunities.
+                </p>
+                
+                <form class="space-y-6">
+                    <div class="grid grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs uppercase tracking-widest text-sage-500 mb-2">First Name</label>
+                            <input type="text" class="w-full input-sharp text-sage-900" placeholder="Jane">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-widest text-sage-500 mb-2">Last Name</label>
+                            <input type="text" class="w-full input-sharp text-sage-900" placeholder="Doe">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-sage-500 mb-2">Email</label>
+                        <input type="email" class="w-full input-sharp text-sage-900" placeholder="jane@example.com">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-sage-500 mb-2">Message</label>
+                        <textarea rows="4" class="w-full input-sharp text-sage-900 resize-none" placeholder="How can we collaborate?"></textarea>
+                    </div>
+                    <button type="button" class="w-full bg-sage-100 hover:bg-sage-200 text-sage-900 font-medium py-4 uppercase tracking-wider text-sm transition-colors border border-sage-300">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-sage-900 text-sage-300 py-16">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-12 items-center mb-16">
+                <div class="text-center md:text-left">
+                    <a href="#" class="font-serif text-2xl font-medium text-white tracking-tight flex flex-col md:items-start items-center leading-none mb-2 hover:opacity-80 transition-opacity">
+                        <span>Hadley Huffman</span>
+                        <span class="text-[0.65rem] font-sans tracking-[0.25em] uppercase text-[#A67448] mt-1.5 ml-1">Foundation</span>
+                    </a>
+                    <p class="text-sm font-light">For Inclusion And Equality.<br>Ann Arbor, MI</p>
+                </div>
+                
+                <div class="flex flex-wrap justify-center gap-6 text-xs uppercase tracking-widest text-sage-400">
+                    <a href="#about" class="hover:text-white transition-colors">Story</a>
+                    <a href="#mission" class="hover:text-white transition-colors">Mission</a>
+                    <a href="#impact" class="hover:text-white transition-colors">Impact</a>
+                    <a href="#resources" class="hover:text-white transition-colors">Research</a>
+                </div>
+
+                <div class="flex justify-center md:justify-end space-x-6 text-sage-400">
+                    <a href="#" class="hover:text-white transition-colors">
+                        <i data-lucide="instagram" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#" class="hover:text-white transition-colors">
+                        <i data-lucide="facebook" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#" class="hover:text-white transition-colors">
+                        <i data-lucide="mail" class="w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-sage-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs tracking-wide text-sage-500 font-light">
+                <p>&copy; 2026 The Hadley Huffman Foundation. All rights reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <span>EIN 87-2289250</span>
+                    <span class="hidden md:inline">|</span>
+                    <span>Dedicated to equity in healthcare.</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts for Interactivity -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileLinks = menu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Navbar blur effect on scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.replace('bg-sage-50/95', 'bg-white/95');
+            } else {
+                navbar.classList.replace('bg-white/95', 'bg-sage-50/95');
+            }
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-up').forEach((elem) => {
+            observer.observe(elem);
+        });
+    </script>
+</body>
+</html>    </div>
+
+    <script>
+        const ACCESS_KEY = "huffman"; 
+        const STORAGE_KEY = "maugans_hadley_auth_date";
+
+        function getNYDate() {
+            try {
+                return new Intl.DateTimeFormat('en-US', {
+                    timeZone: 'America/New_York',
+                    year: 'numeric',
+                    month: 'numeric',
+                    day: 'numeric'
+                }).format(new Date());
+            } catch (e) {
+                // Fallback to local date if the timezone string is unsupported
+                return new Date().toLocaleDateString('en-US');
+            }
+        }
+
+        function checkSession() {
+            try {
+                const storedDate = localStorage.getItem(STORAGE_KEY);
+                const currentDate = getNYDate();
+
+                if (storedDate === currentDate) {
+                    showContent();
+                } else {
+                    showGate();
+                }
+            } catch (e) {
+                // If localStorage is blocked (e.g. Incognito), always show gate
+                showGate();
+            }
+        }
+
+        function unlock() {
+            const inputField = document.getElementById('pass-field');
+            const error = document.getElementById('error');
+            
+            // Added .trim() to handle accidental spaces
+            if (inputField.value.trim() === ACCESS_KEY) {
+                try {
+                    localStorage.setItem(STORAGE_KEY, getNYDate());
+                } catch (e) {
+                    console.warn("LocalStorage blocked; session will not persist.");
+                }
+                showContent();
+            } else {
+                error.classList.remove('opacity-0');
+                setTimeout(() => error.classList.add('opacity-0'), 2000);
+            }
+        }
+
+        function showContent() {
+            document.getElementById('gate').classList.add('hidden-content');
+            document.getElementById('content').classList.remove('hidden-content');
+        }
+
+        function showGate() {
+            document.getElementById('gate').classList.remove('hidden-content');
+            document.getElementById('content').classList.add('hidden-content');
+        }
+
+        document.getElementById('pass-field').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') unlock();
+        });
+
+        window.addEventListener('DOMContentLoaded', checkSession);
+    </script>
+</body>
+</html>
