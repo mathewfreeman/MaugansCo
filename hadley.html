@@ -142,7 +142,7 @@
 <body class="font-sans text-sage-800 bg-sage-50 antialiased selection:bg-sage-200 selection:text-sage-900">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-sage-50/95 backdrop-blur-sm border-b border-sage-200 transition-all duration-300" id="navbar">
+    <nav class="fixed w-full z-50 bg-sage-50/95 backdrop-blur-sm border-b border-sage-200 transition-all duration-300" style="top: calc(64px + env(safe-area-inset-top)); id="navbar">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
@@ -795,7 +795,7 @@
         function showContent() {
             document.getElementById('gate').classList.add('hidden-content');
             document.getElementById('content').classList.remove('hidden-content');
-            document.body.style.overflow = 'auto';
+            document.body.style.overflow = '';
 
             // 3. The "Triple-Kick" Viewport Reset
             const viewport = document.querySelector('meta[name="viewport"]');
@@ -805,8 +805,9 @@
         
                 // Wait for the redraw, then restore user control
                 setTimeout(() => {
-                    viewport.content = 'width=device-width, initial-scale=1.0, user-scalable=1';
-                }, 500); // 500ms is the "sweet spot" for iOS animation cycles
+                    // Keep maximum-scale=1.0 to guarantee zero form zoom
+                    viewport.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, viewport-fit=cover';
+                }, 500); 
             }
         }
 
@@ -837,9 +838,6 @@
                 display: flex; align-items: center; justify-content: space-between;
                 padding: 0 24px; box-sizing: border-box; z-index: 99999;
                 font-family: 'IBM Plex Sans', sans-serif; color: #1a1a1a;
-                -webkit-transform: translate3d(0,0,0);
-                transform: translate3d(0,0,0);
-                -webkit-backface-visibility: hidden;
             }
             .maugans-header-left { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
             .maugans-logo-svg { width: 20px; height: 20px; display: block; }
